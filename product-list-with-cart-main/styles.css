@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: rgba(255, 192, 203, 0.449);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  @media (max-width: 767px) {
+    flex-flow: column nowrap;
+    padding: 0;
+  }
+}
+
+article {
+  width: 70vw;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+article h1{
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 1rem;
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+button.add-to-cart {
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+  padding: .3rem .8rem;
+  border: 1px solid rosybrown;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: unset;
+}
+
+button.add-to-cart.hovered {
+  padding: 0 .8rem;
+  background-color: red;
+}
+
+button.add-to-cart::before {
+  content: url(./assets/images/icon-add-to-cart.svg);
+  vertical-align: -15%;
+  margin-right: .3rem;
+}
+
+button.add-to-cart.hovered::before {
+  display: none;
+}
+
+button.less, button.more {
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.3rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  line-height: 0rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+:is(button.less, button.more):hover {
+  background-color: white;
+  color: red;
+}
+
+.product {
+  @media (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+
+.product img {
+  width: 20vw;
+  border-radius: 1rem;
+  border: 3px solid transparent;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.product .category {
+  font-weight: 300;
+  margin-top: 2rem;
+}
+
+.product .name {
+  font-weight: 700;
+}
+
+.product .price {
+  font-weight: 700;
+  color: hsl(6, 41%, 53%);
+}
+
+.cart {
+  background-color: white;
+  padding: 1rem;
+  height: min-content;
+  align-self: flex-start;
+  position: sticky;
+  border-radius: 1rem;
+  width: 30vw;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.cart h1 {
+  color: red;
+  margin-bottom: 2rem;
+
+}
+
+.cart figure{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart figcaption {
+  color: rgb(207, 123, 137);
+}
+
+.cart-product {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+div:has(> .product-info) {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid rgb(236, 148, 163);
+}
+
+.cart-product .product-info {
+  display: flex;
+  gap: 1rem;
+  width: 70%;
+}
+
+.cart-product .product-name {
+  font-weight: 700;
+}
+
+.cart-product .product-amount {
+  color: red;
+}
+
+.cart-product .product-price {
+  color: rgb(236, 148, 163);
+  white-space: nowrap;
+}
+
+.cart-product .product-price-total {
+  color: rgb(229, 74, 100);
+}
+
+.cart-product .product-remove {
+  position: absolute;
+  right: 0;
+  color: rgb(236, 148, 163);
+  font-size: 1rem;
+  border: 1px solid rgb(236, 148, 163);
+  border-radius: 50%;
+  height: 1.3rem;
+  width: 1.3rem;
+  line-height: 0rem;
+  text-align: center;
+  background-color: white;
+}
+
+.cart-product .product-remove:hover {
+  border: 2px solid black;
+  color: black;
+}
+
+.order-total {
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  display: none;
+}
+
+.order-total p.order-total-text {
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.order-total p.order-total-text span.total-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.order-total p.carbon-neutral {
+  background-color: rgba(255, 192, 203, 0.537);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.order-total p.carbon-neutral::before {
+  content: url('./assets/images/icon-carbon-neutral.svg');
+  vertical-align: -20%;
+  margin-right: .5rem;
+}
+
+.order-total button.confirm,  dialog button.new-order{
+  background-color: rgb(192, 61, 61);
+  -webkit-user-drag: 100%;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: white;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  width: 100%;
+}
+
+
+dialog {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 1rem;
+  border-radius: 1rem;
+  @media (max-width: 767px) {
+    padding: 1rem .2rem;
+    max-width: 100%;
+    width: 100%; 
+    border-radius: 1rem 1rem 0 0;
+    transform: translate(-50%, 0%);
+  }
+}
+
+dialog > p:first-of-type {
+  color: rgb(236, 157, 170);
+}
+
+dialog .dialog-order {
+  background-color: rgba(228, 213, 215, 0.282);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  padding: .5rem 0;
+  width: 100%;
+}
+
+dialog .dialog-product {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(236, 148, 163);
+  padding: 1rem;
+
+  width: 100%;
+}
+
+dialog .dialog-product img {
+  @media (max-width: 767px) {
+    max-width: 4rem;
+  }
+}
+
+dialog .dialog-product .dialog-info {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  white-space: nowrap;
+  margin-right: 6rem;
+  width: 100%;
+  @media (max-width: 767px) {
+    margin-right: 3rem;
+  }
+}
+
+dialog .dialog-product .dialog-name {
+  font-weight: 700;
+}
+
+dialog .dialog-product .dialog-amount {
+  color: red;
+}
+
+dialog .dialog-product .dialog-price {
+  margin-left: 1rem;
+  color: rgb(155, 103, 111);
+}
+
+dialog .dialog-product .dialog-price-total {
+  font-weight: 700;
+  position: absolute;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+dialog .dialog-order .dialog-order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.dialog-order-total .total-price {
+  font-size: 1.5rem;
+}
+

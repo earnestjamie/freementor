@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <title>Product list with cart</title>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <article>
+    <h1>Desserts</h1>
+    <div class="container">
+
+    </div>
+  </article>
+  <div class="cart">
+    <h1>Your Cart (<span class="cart-counter">0</span>)</h1>
+    <figure>
+      <img src="./assets/images/illustration-empty-cart.svg" alt="">
+      <figcaption>Your added items will appear here</figcaption>
+    </figure> 
+    <div class="cart-product">
+
+    </div>
+    <div class="order-total">
+      <p class="order-total-text"><span>Order Total</span><span class="total-price">asd</span></p>
+      <p class="carbon-neutral">This is <b>carbon-neutral</b> delivery</p>
+      <button type="button" class="confirm">Confirm Order</button>
+    </div>
+  </div>
+
+  
+  <dialog>
+    <img src="./assets/images/icon-order-confirmed.svg" alt="">
+    <h1>Order Confirmed</h1>
+    <p>We hope you enjoy your food!</p>
+    <div class="dialog-order">
+
+    </div>
+    <button type="button" class="new-order">Start New Order</button>
+  </dialog>
+</body>
+</html>
